@@ -473,10 +473,30 @@ body {
 <pre class="prettyprint" style="border-style: hidden;"><code>RusterAddons.Call ( "OpenModal", userId, modal, onSubmit, onCancel );</code></pre>                                       
                 
                 <b>Example:</b>
-<pre class="prettyprint" style="border-style: hidden;"><code>var userId = 1234UL;
-var modal = 
-RusterAddons.Call ( "OpenModal", userId, modal, onSubmit, onCancel );
+<pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>var userId = 1234UL;
+var modal = new JObject ()
+{
+    [ "Title" ] = "My Title";
+    [ "Description" ] = $"This is my awesome description! Also, this is some content: {post [ "Content" ]}";
+    [ "Fields" ] = JObject.Parse ( JsonConvert.SerializeObject ( new Dictionary&lt;string, JObject&gt; ()
+    {
+        [ "test" ] = new JObject ()
+        {
+            [ "Title" ] = "Field #1",
+            [ "IsRequired" ] = true,
+            [ "DefaultValue" ] = "Potatoes suck!"
+        },
+        [ "test1" ] = new JObject ()
+        {
+            [ "Title" ] = "Field #2",
+            [ "Description" ] = "To yeet or not to yeet."
+        },
+    } 
+} ) );
 
+RusterAddons?.Call ( "OpenModal", userId, modal,
+    new Action&lt;Dictionary&lt;string, string&gt;&gt; ( ( values ) =&gt; { Puts ( $"Test worked. {values["test"]} and {values["test1"]}" ); } ),
+    new Action ( () =&gt; { Puts ( $"Test cancelled." ); } ) );
 </code></pre>                                       
 			</div>
 		</div>
@@ -505,9 +525,8 @@ RusterAddons.Call ( "OpenModal", userId, modal, onSubmit, onCancel );
 <pre class="prettyprint" style="border-style: hidden;"><code>RusterAddons.Call&lt;string&gt; ( "IsBlockedTonite", isJamieLeeOrJackieChan );</code></pre>                                       
                 <b>Returns:</b> Game crash.</br>
                 </br><b>Example:</b>
-<pre class="prettyprint" style="border-style: hidden;"><code>var isJamieLeeOrJackieChan = true;
+<pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>var isJamieLeeOrJackieChan = true;
 var call = RusterAddons.Call&lt;string&gt; ( "IsBlockedTonite", isJamieLeeOrJackieChan );
-
 Puts ( call );
 throw new Exception ( "This is some stupid insanity." );</code></pre>                                       
 			</div>
@@ -2884,7 +2903,7 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
 }</code></pre>                                       
                 
                 <b>Example:</b>
-<pre class="prettyprint" style="border-style: hidden;"><code>{
+<pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>{
   "Title": "Report",
   "Description": "Report this player for something that's unholy.",
   "Fields": {
