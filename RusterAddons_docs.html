@@ -463,7 +463,7 @@ body {
 
 	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 		<div class="d-flex justify-content-between">
-			<strong class="text-gray-dark">void <b>OpenModal</b> ( ulong userId, JObject modal, Action<> onSubmit, Action onCancel )</strong>
+			<strong class="text-gray-dark">void <b>OpenModal</b> ( ulong userId, JObject modal, Action&lt;Dictionary&lt;string, string&gt;&gt; onSubmit, Action onCancel )</strong>
 		</div>
 		<span class="d-block">Opens a custom modal with customized title, description and fields. On cancel / submit get triggered on user input.</span>
 		<div class="collapse" id="OpenModal-1">
@@ -510,7 +510,7 @@ RusterAddons?.Call ( "OpenModal", userId, modal,
 
 	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 		<div class="d-flex justify-content-between">
-			<strong class="text-gray-dark">void <b>OpenColorPicker</b> ( ulong userId, Action<> onColorPicked, Action onCancel )</strong>
+			<strong class="text-gray-dark">void <b>OpenColorPicker</b> ( ulong userId, Action&lt;string, string&gt; onColorPicked, Action onCancel )</strong>
 		</div>
 		<span class="d-block">Opens the color picker. On cancel / submit get triggered on user input.</span>
 		<div class="collapse" id="OpenColorPicker-1">
@@ -758,6 +758,50 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
                 <b>Template:</b>
 <pre class="prettyprint" style="border-style: hidden;"><code>RusterAddons.Call&lt;bool&gt; ( "IsVerified", userId );</code></pre>                                       
                 <b>Returns:</b> Is user verified?</br>
+                                                       
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="d-flex text-muted pt-3">
+	<a data-bs-toggle="collapse" href="#IsDeveloper-1" role="button" aria-expanded="false" aria-controls="IsDeveloper-1" class="collapsed">
+	<i class="fa fa-chevron-up" style="padding-right: 10px; color: #42f5e9;"></i>
+	</a>
+
+	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+		<div class="d-flex justify-content-between">
+			<strong class="text-gray-dark">bool <b>IsDeveloper</b> ( ulong userId )</strong>
+		</div>
+		<span class="d-block">Checks if an user is a developer on Ruster.NET.</span>
+		<div class="collapse" id="IsDeveloper-1">
+			<br>
+			<div class="card card-body">
+                <b>Template:</b>
+<pre class="prettyprint" style="border-style: hidden;"><code>RusterAddons.Call&lt;bool&gt; ( "IsDeveloper", userId );</code></pre>                                       
+                <b>Returns:</b> Is user a developer?</br>
+                                                       
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="d-flex text-muted pt-3">
+	<a data-bs-toggle="collapse" href="#IsBot-1" role="button" aria-expanded="false" aria-controls="IsBot-1" class="collapsed">
+	<i class="fa fa-chevron-up" style="padding-right: 10px; color: #42f5e9;"></i>
+	</a>
+
+	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+		<div class="d-flex justify-content-between">
+			<strong class="text-gray-dark">bool <b>IsBot</b> ( ulong userId )</strong>
+		</div>
+		<span class="d-block">Checks if an user is a bot on Ruster.NET.</span>
+		<div class="collapse" id="IsBot-1">
+			<br>
+			<div class="card card-body">
+                <b>Template:</b>
+<pre class="prettyprint" style="border-style: hidden;"><code>RusterAddons.Call&lt;bool&gt; ( "IsBot", userId );</code></pre>                                       
+                <b>Returns:</b> Is user a bot?</br>
                                                        
 			</div>
 		</div>
@@ -1211,7 +1255,7 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
 
 	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 		<div class="d-flex justify-content-between">
-			<strong class="text-gray-dark">void <b>GiveBusinessCard</b> ( BasePlayer player, ulong userId )</strong>
+			<strong class="text-gray-dark">void <b>GiveBusinessCard</b> ( JObject player, ulong userId )</strong>
 		</div>
 		<span class="d-block">Gives a business card to a player with the user's credentials.</span>
 		<div class="collapse" id="GiveBusinessCard-1">
@@ -2210,7 +2254,55 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
 </div>
            
           </div><p class="h1">Hooks</p>
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <h6 class="border-bottom pb-2 mb-0">Browser</h6>
+              
 
+<div class="d-flex text-muted pt-3">
+	<a data-bs-toggle="collapse" href="#RNETAPI_OnCouponAdded-1_hook" role="button" aria-expanded="false" aria-controls="RNETAPI_OnCouponAdded-1_hook" class="collapsed">
+	<i class="fa fa-chevron-up" style="padding-right: 10px; color: #f54242;"></i>
+	</a>
+
+	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+		<div class="d-flex justify-content-between">
+			<strong class="text-gray-dark">void <b>OnCouponAdded</b> ( ulong userId, string coupon )</strong>
+		</div>
+		<span class="d-block">Called whenever an user added a new coupon to their account.</span>
+		<div class="collapse" id="RNETAPI_OnCouponAdded-1_hook">
+			<br>
+			<div class="card card-body">
+                <b>Template:</b>
+<pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>void OnCouponAdded ( ulong userId, string coupon )</br>{</br></br>}</code></pre>                                       
+                
+                                                       
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="d-flex text-muted pt-3">
+	<a data-bs-toggle="collapse" href="#RNETAPI_OnCouponRemoved-1_hook" role="button" aria-expanded="false" aria-controls="RNETAPI_OnCouponRemoved-1_hook" class="collapsed">
+	<i class="fa fa-chevron-up" style="padding-right: 10px; color: #f54242;"></i>
+	</a>
+
+	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+		<div class="d-flex justify-content-between">
+			<strong class="text-gray-dark">void <b>OnCouponRemoved</b> ( ulong userId, string coupon )</strong>
+		</div>
+		<span class="d-block">Called whenever an user removed a coupon from their account.</span>
+		<div class="collapse" id="RNETAPI_OnCouponRemoved-1_hook">
+			<br>
+			<div class="card card-body">
+                <b>Template:</b>
+<pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>void OnCouponRemoved ( ulong userId, string coupon )</br>{</br></br>}</code></pre>                                       
+                
+                                                       
+			</div>
+		</div>
+    </div>
+</div>
+           
+          </div>
   <div class="my-3 p-3 bg-body rounded shadow-sm">
             <h6 class="border-bottom pb-2 mb-0">General</h6>
               
@@ -2910,6 +3002,33 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
 </div>
 
 <div class="d-flex text-muted pt-3">
+	<a data-bs-toggle="collapse" href="#RusterFlipbook_api" role="button" aria-expanded="false" aria-controls="RusterFlipbook_api" class="collapsed">
+	<i class="fa fa-chevron-up" style="padding-right: 10px; color: black;"></i>
+	</a>
+
+	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+		<div class="d-flex justify-content-between">
+			<strong class="text-gray-dark">RusterFlipbook</strong>
+		</div>
+		<span class="d-block">JSON structure of RusterFlipbook.</span>
+		<div class="collapse" id="RusterFlipbook_api">
+			<br>
+			<div class="card card-body">
+                <b>Template:</b>
+<pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>{
+  "Id": null,
+  "ThumbnailUrl": null,
+  "MaximumFrames": 0,
+  "Frames": 0
+}</code></pre>                                       
+                
+                                                       
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="d-flex text-muted pt-3">
 	<a data-bs-toggle="collapse" href="#RusterModal_api" role="button" aria-expanded="false" aria-controls="RusterModal_api" class="collapsed">
 	<i class="fa fa-chevron-up" style="padding-right: 10px; color: black;"></i>
 	</a>
@@ -3252,6 +3371,83 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
   "Instances": 1,
   "Filter": null,
   "FilterType": 0
+}</code></pre>                                       
+                
+                                                       
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="d-flex text-muted pt-3">
+	<a data-bs-toggle="collapse" href="#RusterBusinessCard_api" role="button" aria-expanded="false" aria-controls="RusterBusinessCard_api" class="collapsed">
+	<i class="fa fa-chevron-up" style="padding-right: 10px; color: black;"></i>
+	</a>
+
+	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+		<div class="d-flex justify-content-between">
+			<strong class="text-gray-dark">RusterBusinessCard</strong>
+		</div>
+		<span class="d-block">JSON structure of RusterBusinessCard.</span>
+		<div class="collapse" id="RusterBusinessCard_api">
+			<br>
+			<div class="card card-body">
+                <b>Template:</b>
+<pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>{
+  "UserId": 0
+}</code></pre>                                       
+                
+                                                       
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="d-flex text-muted pt-3">
+	<a data-bs-toggle="collapse" href="#RusterBot_api" role="button" aria-expanded="false" aria-controls="RusterBot_api" class="collapsed">
+	<i class="fa fa-chevron-up" style="padding-right: 10px; color: black;"></i>
+	</a>
+
+	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+		<div class="d-flex justify-content-between">
+			<strong class="text-gray-dark">RusterBot</strong>
+		</div>
+		<span class="d-block">JSON structure of RusterBot.</span>
+		<div class="collapse" id="RusterBot_api">
+			<br>
+			<div class="card card-body">
+                <b>Template:</b>
+<pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>{
+  "Id": 0,
+  "Prefix": "!",
+  "Plugin": null,
+  "Commands": []
+}</code></pre>                                       
+                
+                                                       
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="d-flex text-muted pt-3">
+	<a data-bs-toggle="collapse" href="#Command_api" role="button" aria-expanded="false" aria-controls="Command_api" class="collapsed">
+	<i class="fa fa-chevron-up" style="padding-right: 10px; color: black;"></i>
+	</a>
+
+	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+		<div class="d-flex justify-content-between">
+			<strong class="text-gray-dark">Command</strong>
+		</div>
+		<span class="d-block">JSON structure of Command.</span>
+		<div class="collapse" id="Command_api">
+			<br>
+			<div class="card card-body">
+                <b>Template:</b>
+<pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>{
+  "BotId": 0,
+  "Name": null,
+  "IsVoid": false
 }</code></pre>                                       
                 
                                                        
