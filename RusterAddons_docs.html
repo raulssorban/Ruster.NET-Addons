@@ -404,7 +404,7 @@ body {
   <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm" style="background-color: #6f42c1;">
     <div class="lh-1">
       <h1 class="h6 mb-0 text-white lh-1"><b>Ruster.NET Addons</b> v1.0.0</h1>
-	  <small>Hooks & API for <a href="https://codefling.com/plugins/rusternet" target="_blank" style="color: white;">Ruster.NET</a> v4.1.1</small> 
+	  <small>Hooks & API for <a href="https://codefling.com/plugins/rusternet" target="_blank" style="color: white;">Ruster.NET</a> v4.1.2</small> 
     </div>
   </div>
     <p class="h1">API</p>
@@ -1263,6 +1263,33 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
 			<div class="card card-body">
                 <b>Template:</b>
 <pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>RusterAddons.Call ( "GiveBusinessCard", player, userId );</code></pre>                                       
+                
+                                                       
+			</div>
+		</div>
+    </div>
+</div>
+           
+          </div>
+  <div class="my-3 p-3 bg-body rounded shadow-sm">
+            <h6 class="border-bottom pb-2 mb-0">Bot</h6>
+              
+
+<div class="d-flex text-muted pt-3">
+	<a data-bs-toggle="collapse" href="#CreateBot-1" role="button" aria-expanded="false" aria-controls="CreateBot-1" class="collapsed">
+	<i class="fa fa-chevron-up" style="padding-right: 10px; color: #f54242;"></i>
+	</a>
+
+	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+		<div class="d-flex justify-content-between">
+			<strong class="text-gray-dark">void <b>CreateBot</b> ( ulong botId, JObject type, JObject plugin )</strong>
+		</div>
+		<span class="d-block">Creates a bot and uses the type value to install the bot commands. The bot gets uninstalled once the plugin's unloaded. Customize the bot using the CreateOrUpdateUser API call.</span>
+		<div class="collapse" id="CreateBot-1">
+			<br>
+			<div class="card card-body">
+                <b>Template:</b>
+<pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>RusterAddons.Call ( "CreateBot", botId, type, plugin );</code></pre>                                       
                 
                                                        
 			</div>
@@ -2441,6 +2468,7 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
            
           </div>
 
+
   <div class="my-3 p-3 bg-body rounded shadow-sm">
             <h6 class="border-bottom pb-2 mb-0">Post</h6>
               
@@ -3246,7 +3274,7 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
 			<div class="card card-body">
                 <b>Template:</b>
 <pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>{
-  "Id": 1227587142,
+  "Id": 1849690574,
   "CustomTitle": null,
   "IsLocked": false,
   "ConversationType": 0,
