@@ -323,7 +323,7 @@ body {
     <meta name="description" content="">
     <meta name="author" content="Raul-Sorin Sorban">
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-    <title>Ruster.NET Addons v1.0.0 Documentation </title>
+    <title>Ruster.NET Addons v1.0.1 Documentation </title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/offcanvas-navbar/">
 
@@ -403,7 +403,7 @@ body {
 <main class="container">
   <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm" style="background-color: #6f42c1;">
     <div class="lh-1">
-      <h1 class="h6 mb-0 text-white lh-1"><b>Ruster.NET Addons</b> v1.0.0</h1>
+      <h1 class="h6 mb-0 text-white lh-1"><b>Ruster.NET Addons</b> v1.0.1</h1>
 	  <small>Hooks & API for <a href="https://codefling.com/plugins/rusternet" target="_blank" style="color: white;">Ruster.NET</a> v4.1.2</small> 
     </div>
   </div>
@@ -1282,16 +1282,30 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
 
 	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 		<div class="d-flex justify-content-between">
-			<strong class="text-gray-dark">void <b>CreateBot</b> ( ulong botId, JObject type, JObject plugin )</strong>
+			<strong class="text-gray-dark">void <b>CreateBot</b> ( ulong botId, JObject prefix, JObject type, JObject plugin )</strong>
 		</div>
 		<span class="d-block">Creates a bot and uses the type value to install the bot commands. The bot gets uninstalled once the plugin's unloaded. Customize the bot using the CreateOrUpdateUser API call.</span>
 		<div class="collapse" id="CreateBot-1">
 			<br>
 			<div class="card card-body">
                 <b>Template:</b>
-<pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>RusterAddons.Call ( "CreateBot", botId, type, plugin );</code></pre>                                       
+<pre class="prettyprint" style="border-style: hidden;"><code>RusterAddons.Call ( "CreateBot", botId, prefix, type, plugin );</code></pre>                                       
                 
-                                                       
+                <b>Example:</b>
+<pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>public static class MyAwesomeBot
+{
+    public static void CommandName1 ( int conversationId, ulong botId, string command, string [] arguments )
+    {
+        Instance.Puts ( "Command called!" );
+    }
+
+    public static string CommandName2 ( int conversationId, ulong botId, string command, string [] arguments )
+    {
+        return $"Print this in chat. You called: {command}";
+    }
+}
+
+// Go to your DMs, have a custom group, add your bot in the group and call &lt;prefix&gt;commandname1 or &lt;prefix&gt;commandname2 in DM chat.</code></pre>                                       
 			</div>
 		</div>
     </div>
@@ -3274,7 +3288,7 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
 			<div class="card card-body">
                 <b>Template:</b>
 <pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>{
-  "Id": 1849690574,
+  "Id": 1593548852,
   "CustomTitle": null,
   "IsLocked": false,
   "ConversationType": 0,
