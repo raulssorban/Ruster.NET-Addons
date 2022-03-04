@@ -1282,7 +1282,7 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
 
 	<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 		<div class="d-flex justify-content-between">
-			<strong class="text-gray-dark">void <b>CreateBot</b> ( ulong botId, JObject prefix, JObject type, JObject plugin )</strong>
+			<strong class="text-gray-dark">void <b>CreateBot</b> ( ulong botId, char prefix, Type type, Plugin plugin )</strong>
 		</div>
 		<span class="d-block">Creates a bot and uses the type value to install the bot commands. The bot gets uninstalled once the plugin's unloaded. Customize the bot using the CreateOrUpdateUser API call.</span>
 		<div class="collapse" id="CreateBot-1">
@@ -1304,6 +1304,13 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
         return $"Print this in chat. You called: {command}";
     }
 }
+
+var botId = 12345UL;
+var prefix = '!';
+var type = typeof ( MyAwesomeBot );
+var plugin = this;
+
+RusterAddons.Call ( "CreateBot", botId, prefix, type, plugin );
 
 // Go to your DMs, have a custom group, add your bot in the group and call &lt;prefix&gt;commandname1 or &lt;prefix&gt;commandname2 in DM chat.</code></pre>                                       
 			</div>
@@ -3288,7 +3295,7 @@ throw new Exception ( "This is some stupid insanity." );</code></pre>
 			<div class="card card-body">
                 <b>Template:</b>
 <pre class="prettyprint" style="border-style: hidden; margin-bottom: -2px;"><code>{
-  "Id": 1593548852,
+  "Id": 1212665041,
   "CustomTitle": null,
   "IsLocked": false,
   "ConversationType": 0,
